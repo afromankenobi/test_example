@@ -29,5 +29,15 @@ describe Integer do
     it { expect(1_000_000_000_000_000_000.to_words).to eq('un trillon')}
     it { expect(1_321_654_865_748_651_456.to_words).to eq('un trillon trescientos veinte y un mil seiscientos cincuenta y cuatro billones ochocientos sesenta y cinco mil setecientos cuarenta y ocho millones seiscientos cincuenta y un mil cuatrocientos cincuenta y seis')}
     it { expect(1_601_995_101_671_024_036.to_words).to eq('un trillon seiscientos un mil novecientos noventa y cinco billones ciento un mil seiscientos setenta y un millones veinte y cuatro mil treinta y seis') }
+    it { expect(999_999_999_999_999_999_999_999_999_999_999_999_999_999_999_999_999_999_999_999.to_words).to eq('novecientos noventa y nueve mil novecientos noventa y nueve nonillones novecientos noventa y nueve mil novecientos noventa y nueve octillones novecientos noventa y nueve mil novecientos noventa y nueve septillones novecientos noventa y nueve mil novecientos noventa y nueve sextillones novecientos noventa y nueve mil novecientos noventa y nueve quintillones novecientos noventa y nueve mil novecientos noventa y nueve cuatrillones novecientos noventa y nueve mil novecientos noventa y nueve trillones novecientos noventa y nueve mil novecientos noventa y nueve billones novecientos noventa y nueve mil novecientos noventa y nueve millones novecientos noventa y nueve mil novecientos noventa y nueve')}
+
+    it { expect { 1_000_000_000_000_000_000_000_000_000_000_000_000_000_000_000_000_000_000_000_000.to_words }.to raise_error(ArgumentError) }
+
+    it { expect(-1.to_words).to eq('menos uno') }
+    it { expect(-8.to_words).to eq('menos ocho') }
+    it { expect(-12.to_words).to eq('menos doce') }
+    it { expect(-50.to_words).to eq('menos cincuenta') }
+    it { expect(-84.to_words).to eq('menos ochenta y cuatro') }
+    it { expect(-100.to_words).to eq('menos cien') }
   end
 end
