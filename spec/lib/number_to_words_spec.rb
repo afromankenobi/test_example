@@ -28,5 +28,6 @@ describe Integer do
     it { expect(1_111_999_999_999.to_words).to eq('un billon ciento once mil novecientos noventa y nueve millones novecientos noventa y nueve mil novecientos noventa y nueve')}
     it { expect(1_000_000_000_000_000_000.to_words).to eq('un trillon')}
     it { expect(1_321_654_865_748_651_456.to_words).to eq('un trillon trescientos veinte y un mil seiscientos cincuenta y cuatro billones ochocientos sesenta y cinco mil setecientos cuarenta y ocho millones seiscientos cincuenta y un mil cuatrocientos cincuenta y seis')}
+    it { expect(1_601_995_101_671_024_036.to_words).to eq('un trillon seiscientos un mil novecientos noventa y cinco billones ciento un mil seiscientos setenta y un millones veinte y cuatro mil treinta y seis') }
   end
 end

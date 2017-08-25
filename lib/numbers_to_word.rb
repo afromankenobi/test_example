@@ -64,7 +64,7 @@ class Integer
   end
 
   def handle_tens(cut_one = false)
-    return handle_firsts if self < 20
+    return handle_firsts(cut_one) if self < 20
 
     ten, unit = divmod(10)
     unit.zero? ? TENS[ten] : "#{TENS[ten]} y #{unit.handle_firsts(cut_one)}"
@@ -88,9 +88,9 @@ class Integer
     handle_hundreds(cut_one) if self < 1000
   end
 
-  def periods_words(number, i)
+  def periods_words(number, i, cut_one = false)
     return [FIRST_PERIOD, PERIODS[i]].join(' ') if number == 1
-    [number.words_for_classes, PERIODS[i] + BIG_PLURAL].join(' ')
+    [number.words_for_classes(cut_one), PERIODS[i] + BIG_PLURAL].join(' ')
   end
 
   # 1_243_961_782 -> 782, 961, 243, 1
@@ -109,7 +109,7 @@ class Integer
   def convert_group(number, i, cut_one)
     return number.words_for_classes if i.zero?
     return classes_words(number, cut_one) if i.odd?
-    periods_words(number, i) if i.even?
+    periods_words(number, i, cut_one) if i.even?
   end
 
   # Each number can be divided on groups of 6 digits, that is called period
