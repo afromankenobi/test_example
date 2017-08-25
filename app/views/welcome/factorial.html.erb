@@ -1,0 +1,14 @@
+<h3>Determinar los ceros a la derecha de n!</h3>
+
+<h4>Código: </h4>
+
+<script src="https://gist.github.com/afromankenobi/b38b058e1b13b20f6eb642a5cca5f49f.js"></script>
+
+<h4>Algunos resultados: </h4>
+<% @factorial_examples.each do |k, v| %>
+  <p>
+    <strong>Para <%= k %></strong>: <br>
+    Factorial: <%= v[:factorial] %> <br>
+    Ceros al final: <%= v[:number_of_zeros] %>
+  </p>
+<% end %>
