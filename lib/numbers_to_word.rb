@@ -57,6 +57,37 @@ class Integer
     diecisiete dieciocho diecinueve
   ].freeze
 
+  NEGATIVE = 'menos'.freeze
+
+  MAX_NUMBER = 999_999_999_999_999_999_999_999_999_999_999_999_999_999_999_999_999_999_999_999
+
+  # Each number can be divided on groups of 6 digits, that is called period
+  # Each period can be divided on groups of 3 digits. This's called Class
+  def to_words
+    # i don't know what is next to nonillones
+    if self > MAX_NUMBER
+      raise ArgumentError, "can't convert numbers bigger than #{MAX_NUMBER}"
+    end
+
+    # handle negatives
+    if negative?
+      [NEGATIVE, process_groups(abs.in_groups)].join(' ')
+    else
+      process_groups(in_groups)
+    end
+  end
+
+  def process_groups(groups)
+    words = []
+    groups.each_with_index do |group, index|
+      # omit 'cero' for index > 1
+      next if group.to_i.zero? && groups.count > 1
+      # send true for cut_one if index > 0
+      words << convert_group(group.to_i, index, index > 0)
+    end
+    words.reverse.join(' ')
+  end
+
   def handle_firsts(cut_one = false)
     # uno should be un when more numbers come to the right
     return 'un' if self == 1 && cut_one == true
@@ -110,19 +141,5 @@ class Integer
     return number.words_for_classes if i.zero?
     return classes_words(number, cut_one) if i.odd?
     periods_words(number, i, cut_one) if i.even?
-  end
-
-  # Each number can be divided on groups of 6 digits, that is called period
-  # Each period can be divided on groups of 3 digits. This's called Class
-  def to_words
-    groups = in_groups
-    words = []
-    groups.each_with_index do |group, index|
-      next if group.to_i.zero? && groups.count > 1
-      cut_one = index > 0
-      words << convert_group(group.to_i, index, cut_one)
-    end
-
-    words.reverse.join(' ')
   end
 end
