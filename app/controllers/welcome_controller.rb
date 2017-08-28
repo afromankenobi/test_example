@@ -28,4 +28,7 @@ class WelcomeController < ApplicationController
       }
     end
   end
+
+  def data_model; end
+  def oop; end
 end
