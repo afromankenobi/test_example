@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TestGaroo</title>
+    <title>Test</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,21 @@
   </head>
 
   <body>
+    <ul class="menu">
+      <li><%= link_to 'Bienvenida', root_path %></li>
+      <li>
+        <%= link_to 'Cursos', courses_path %>
+      </li>
+      <li>
+      <%= link_to "Miembros", members_path %>
+      </li>
+      <li>
+        <%= link_to "Tests", tests_path %>
+      </li>
+      <li>
+        <%= link_to "Evaluaciones", evaluations_path %>
+      </li>
+    </ul>
     <%= yield %>
   </body>
 </html>
