@@ -16,6 +16,11 @@
     <%= form.text_field :name, id: :course_name %>
   </div>
 
+  <div class="field">
+    <%= form.label :member_ids, 'Participaciones' %>
+    <%= form.select(:member_ids, options_from_collection_for_select(Member.all, :id, :to_s, { selected: course.member_ids }), { id: :member_ids }, { multiple: true }) %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
