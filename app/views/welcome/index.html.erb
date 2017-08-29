@@ -2,10 +2,13 @@
 
 <h2>Parte 1: </h2>
 <ul>
-  <li><%= link_to 'Factoriales', welcome_factorial_path %></li>
-  <li><%= link_to 'Numeros a palabras', welcome_number_to_words_path %></li>
+  <li><%= link_to 'Factoriales', welcome_factorial_path, data: { turbolinks: false }%></li>
+  <li><%= link_to 'Numeros a palabras', welcome_number_to_words_path, data: { turbolinks: false } %></li>
 </ul>
 
 
 <h2>Parte 2:</h2>
-<%= link_to 'Modelo de datos', welcome_data_model_path %>
+<%= link_to 'Modelo de datos', welcome_data_model_path, data: { turbolinks: false } %>
+
+<h2>Parte 3:</h2>
+<%= link_to 'OOP', welcome_oop_path, data: { turbolinks: false } %>
