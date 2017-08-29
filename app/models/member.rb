@@ -5,4 +5,8 @@ class Member < ApplicationRecord
   TYPES = %w[Student Teacher].freeze
 
   validates :type, inclusion: { in: TYPES }
+
+  def to_s
+    name.titleize
+  end
 end
