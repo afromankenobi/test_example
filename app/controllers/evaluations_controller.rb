@@ -1,5 +1,7 @@
 class EvaluationsController < ApplicationController
   before_action :set_evaluation, only: [:show, :edit, :update, :destroy]
+  before_action :set_tests, only: %w[new edit]
+  before_action :set_members, only: %w[new edit]
 
   # GET /evaluations
   # GET /evaluations.json
@@ -67,6 +69,13 @@ class EvaluationsController < ApplicationController
       @evaluation = Evaluation.find(params[:id])
     end
 
+    def set_tests
+      @tests = Test.all
+    end
+
+    def set_members
+      @members = Student.all
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def evaluation_params
       params.require(:evaluation).permit(:test_id, :member_id, :score)

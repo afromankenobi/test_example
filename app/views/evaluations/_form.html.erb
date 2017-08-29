@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label :test_id %>
-    <%= form.text_field :test_id, id: :evaluation_test_id %>
+    <%= form.select :test_id, options_from_collection_for_select(@tests, :id, :content), id: :evaluation_test_id %>
   </div>
 
   <div class="field">
     <%= form.label :member_id %>
-    <%= form.text_field :member_id, id: :evaluation_member_id %>
+    <%= form.select :member_id, options_from_collection_for_select(@members, :id, :to_s), id: :evaluation_member_id %>
   </div>
 
   <div class="field">
